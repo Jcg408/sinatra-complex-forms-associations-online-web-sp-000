@@ -18,12 +18,12 @@ class OwnersController < ApplicationController
   end
 
   get '/owners/:id/edit' do 
-    @owner = Owner.find_by_id(params[:id])
+    @owner = Owner.find(params[:id])
     erb :'/owners/edit'
   end
 
   get '/owners/:id' do 
-    @owner = Owner.find_by_id(params[:id])
+    @owner = Owner.find(params[:id])
     erb :'/owners/show'
   end
 
@@ -32,7 +32,7 @@ class OwnersController < ApplicationController
     params[:owner][:pet_ids] = []
    end
     
-   @owner = Owner.find_by_id(params[:id])
+   @owner = Owner.find(params[:id])
    @owner.update(params[:owner])
    if !params[:pet][:name].empty?
       @owner.pets << Pet.create(name: params[:pet][:name])

@@ -1,10 +1,14 @@
 class PetsController < ApplicationController
+  get '/pets' do
+    @pets = Pet.all
+    erb :'/pets/index' 
+  end
+  
   get '/pets/new' do 
+    
     erb :'/pets/new'
   end
   
- 
-
   post '/pets' do 
   @pet = Pet.create(params[:pet])
     if !params[:owner][:name].empty?

@@ -3,10 +3,7 @@ class PetsController < ApplicationController
     erb :'/pets/new'
   end
   
-  get '/pets' do
-    @pets = Pet.all
-    erb :'/pets/index' 
-  end
+ 
 
   post '/pets' do 
   @pet = Pet.create(params[:pet])

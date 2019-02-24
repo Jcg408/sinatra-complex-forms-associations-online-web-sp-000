@@ -4,6 +4,10 @@ class OwnersController < ApplicationController
     @owners = Owner.all
     erb :'/owners/index' 
   end
+  
+  get '/owners/new' do
+    erb :'/owners/new'
+  end
 
   post '/owners' do
   @owner = Owner.create(params[:owner])
